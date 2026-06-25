@@ -3,10 +3,10 @@ import json, os
 cells = []
 
 def md(id, source):
-    cells.append({"cell_type": "markdown", "id": id, "metadata": {}, "source": source.split("\n")})
+    cells.append({"cell_type": "markdown", "id": id, "metadata": {}, "source": source.splitlines(True)})
 
 def code(id, source):
-    cells.append({"cell_type": "code", "id": id, "metadata": {}, "outputs": [], "execution_count": None, "source": source.split("\n")})
+    cells.append({"cell_type": "code", "id": id, "metadata": {}, "outputs": [], "execution_count": None, "source": source.splitlines(True)})
 
 # ===== Cover =====
 md("md-0", """# 第9讲：MLLM评估结果可视化与论文应用
