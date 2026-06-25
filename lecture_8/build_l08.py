@@ -3,10 +3,10 @@ import json
 cells = []
 
 def md(id, source):
-    cells.append({"cell_type": "markdown", "id": id, "metadata": {}, "source": source.split("\n")})
+    cells.append({"cell_type": "markdown", "id": id, "metadata": {}, "source": source.splitlines(True)})
 
 def code(id, source):
-    cells.append({"cell_type": "code", "id": id, "metadata": {}, "outputs": [], "execution_count": None, "source": source.split("\n")})
+    cells.append({"cell_type": "code", "id": id, "metadata": {}, "outputs": [], "execution_count": None, "source": source.splitlines(True)})
 
 # ===== Cover =====
 md("md-0", """# 第8讲：MLLM输出质量评估——BLEU与术语准确率
@@ -67,7 +67,7 @@ code("code-5", """# ===== 第1章：环境准备 =====
 # Colab 用户：运行此单元格自动安装依赖。
 # 本地 mllm-dh 环境用户：可注释掉 !pip 行。
 
-!pip install -q sacrebleu
+!pip install -q sacrebleu bitsandbytes
 
 import torch
 import json
